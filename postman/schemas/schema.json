@@ -1,119 +1,217 @@
 {
-  "openapi": "3.0.0",
-  "info": {
-    "version": "1.0.0",
-    "title": "hl-rest-api",
-    "description": "Buy or rent spacecrafts"
-  },
-  "paths": {
-    "/spacecrafts/{spacecraftId}": {
-      "parameters": [
-        {
-          "name": "spacecraftId",
-          "description": "The unique identifier of the spacecraft",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "$ref": "#/components/schemas/SpacecraftId"
-          }
-        }
-      ],
-      "get": {
-        "summary": "Read a spacecraft",
-        "responses": {
-          "200": {
-            "description": "The spacecraft corresponding to the provided `spacecraftId`",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Spacecraft"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "No spacecraft found for the provided `spacecraftId`",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "schemas": {
-      "SpacecraftId": {
-        "description": "The unique identifier of a spacecraft",
-        "type": "string"
-      },
-      "Spacecraft": {
-        "type": "object",
-        "required": [
-          "id",
-          "name",
-          "type"
-        ],
-        "properties": {
-          "id": {
-            "$ref": "#/components/schemas/SpacecraftId"
-          },
-          "name": {
-            "type": "string"
-          },
-          "type": {
-            "type": "string",
-            "enum": [
-              "capsule",
-              "probe",
-              "satellite",
-              "spaceplane",
-              "station"
-            ]
-          },
-          "description": {
-            "type": "string"
-          }
-        }
-      },
-      "Error": {
-        "type": "object",
-        "required": [
-          "message"
-        ],
-        "properties": {
-          "message": {
-            "description": "A human readable error message",
-            "type": "string"
-          }
-        }
-      }
-    },
-    "securitySchemes": {
-      "ApiKey": {
-        "type": "apiKey",
-        "in": "header",
-        "name": "X-Api-Key"
-      }
-    }
-  },
-  "security": [
-    {
-      "ApiKey": []
-    }
-  ]
+	"openapi": "3.0.0",
+	"info": {
+		"version": "1.0.0",
+		"title": "hl-rest-api",
+		"description": "helps connect contractors with customers in their local area"
+	},
+	"paths": {
+		"/category/{categoryId}": {
+			"parameters": [
+				{
+					"name": "categoryId",
+					"description": "The unique identifier of the service category",
+					"in": "path",
+					"required": true,
+					"schema": {
+						"$ref": "#/components/schemas/CategoryId"
+					}
+				}
+			],
+			"get": {
+				"summary": "Read a service category by categoryId",
+				"responses": {
+					"200": {
+						"description": "The category corresponding to the provided `categoryId`",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Category"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "No category found for the provided `categoryId`",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Unexpected error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/categories/category&category={category}": {
+			"parameters": [
+				{
+					"name": "category",
+					"description": "The common name of the service category",
+					"in": "path",
+					"required": true,
+					"schema": {
+						"$ref": "#/components/schemas/Category"
+					}
+				}
+			],
+			"get": {
+				"summary": "Read a service category by common name",
+				"responses": {
+					"200": {
+						"description": "The category corresponding to the provided `category`",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Category"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "No category found for the provided `category`",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Unexpected error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/categories": {
+			"get": {
+				"summary": "Read all avaiable service categories",
+				"responses": {
+					"200": {
+						"description": "All service categories that currently exist",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Category"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Nothing found; perhaps first create a category?",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					},
+					"500": {
+						"description": "Unexpected error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"CategoryId": {
+				"description": "The unique identifier of a service category",
+				"type": "string"
+			},
+			"Category": {
+				"type": "object",
+				"required": [
+					"id",
+					"name",
+					"type"
+				],
+				"properties": {
+					"id": {
+						"$ref": "#/components/schemas/CategoryId"
+					},
+					"name": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string",
+						"enum": [
+							"carpet_cleaning",
+							"damage_restoration",
+							"electrical",
+							"flooring_and_tile",
+							"handyman_service",
+							"hvac_service",
+							"interior_design",
+							"landscaping",
+							"locksmithing",
+							"moving_service",
+							"painting",
+							"plumbing",
+							"pool_service",
+							"property_sales",
+							"roofing",
+							"scrap_junk_removal",
+							"snow_removal",
+							"windows_and_doors"
+						]
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			},
+			"Error": {
+				"type": "object",
+				"required": [
+					"message"
+				],
+				"properties": {
+					"message": {
+						"description": "A human readable error message",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"securitySchemes": {
+			"ApiKey": {
+				"type": "apiKey",
+				"in": "header",
+				"name": "X-Api-Key"
+			}
+		}
+	},
+	"security": [
+		{
+			"ApiKey": []
+		}
+	]
 }

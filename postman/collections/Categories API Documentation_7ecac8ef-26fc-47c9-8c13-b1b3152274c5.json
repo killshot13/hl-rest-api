@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "b8becede-01e7-46f9-a5c4-2c767e100321",
+		"name": "Categories API Documentation",
+		"description": "helps connect contractors with customers in their local area",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Read a service category by categoryId",
+			"id": "5e719ff6-0de7-4037-80be-d5468d7730b7",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/category/:categoryId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"category",
+						":categoryId"
+					],
+					"variable": [
+						{
+							"id": "e79e602e-3085-400c-83d9-9ee27ecdbb33",
+							"key": "categoryId",
+							"value": "culpa est sint aute",
+							"description": "(Required) The unique identifier of the service category"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "ac4d6895-c399-47ea-b5b4-59970986ae64",
+					"name": "The category corresponding to the provided `categoryId`",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/category/:categoryId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"category",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": "culpa est sint aute",
+									"description": "(Required) The unique identifier of the service category"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"id\": \"\",\n  \"name\": \"consectetur pariatur fugiat\",\n  \"type\": \"plumbing\",\n  \"description\": \"dolore pariatur nostrud officia\"\n}"
+				},
+				{
+					"id": "bf03db55-775c-4030-84d5-ac27aad1c92a",
+					"name": "No category found for the provided `categoryId`",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/category/:categoryId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"category",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": "culpa est sint aute",
+									"description": "(Required) The unique identifier of the service category"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"message\": \"nulla\"\n}"
+				},
+				{
+					"id": "49201af0-ee45-4a7d-8649-e99edfb135ba",
+					"name": "Unexpected error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/category/:categoryId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"category",
+								":categoryId"
+							],
+							"variable": [
+								{
+									"key": "categoryId",
+									"value": "culpa est sint aute",
+									"description": "(Required) The unique identifier of the service category"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"message\": \"nulla\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Read a service category by common name",
+			"id": "b8342e57-70b9-483a-9e53-e9369b13f0be",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/categories/category&category={{category}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categories",
+						"category&category={{category}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "17534d29-dbdf-4fba-9178-67c6ca94641d",
+					"name": "The category corresponding to the provided `category`",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/categories/category&category={{category}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"category&category={{category}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"enabled": true
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"id\": \"aute\",\n  \"name\": \"sit sint commodo do\",\n  \"type\": \"flooring_and_tile\",\n  \"description\": \"ex anim\"\n}"
+				},
+				{
+					"id": "6f2f8a09-61d9-4b06-9d7c-5a65b5465f98",
+					"name": "No category found for the provided `category`",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/categories/category&category={{category}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"category&category={{category}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"enabled": true
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"message\": \"aute Excepteur minim aliquip\"\n}"
+				},
+				{
+					"id": "0f2076cb-8601-4dbe-9d24-ed73731651a6",
+					"name": "Unexpected error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/categories/category&category={{category}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories",
+								"category&category={{category}}"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"enabled": true
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"message\": \"aute Excepteur minim aliquip\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Read all avaiable service categories",
+			"id": "966021a9-1aba-4a75-a040-99ccd51be0db",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/categories",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "714a1af0-cc6d-43f2-9139-04bfc5ab1eea",
+					"name": "All service categories that currently exist",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"enabled": true
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"id\": \"anim c\",\n  \"name\": \"in consectetur quis\",\n  \"type\": \"plumbing\",\n  \"description\": \"in proident dolor est\"\n}"
+				},
+				{
+					"id": "12cc4a44-3c8b-45ed-887d-ad2f065cd5a9",
+					"name": "Nothing found; perhaps first create a category?",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"enabled": true
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"message\": \"dolor Lorem esse nostrud\"\n}"
+				},
+				{
+					"id": "214078ac-ac78-44cf-8bab-9d909c68ccde",
+					"name": "Unexpected error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: apikey",
+								"key": "X-Api-Key",
+								"value": "<API Key>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/categories",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"enabled": true
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\n  \"message\": \"dolor Lorem esse nostrud\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-Api-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "<API Key>",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "a3b6bfde-7e82-49c9-8ce3-ba5c5293313a",
+			"key": "baseUrl",
+			"value": "/"
+		},
+		{
+			"id": "c8f36905-3f83-4094-a581-4d8a5c48344a",
+			"key": "category",
+			"value": "id,reprehenderit,name,Excepteur aliqu,type,electrical,description,dolor est enim anim"
+		}
+	]
+}
